@@ -1,7 +1,6 @@
 package spring5_webmvc_mybatis_study.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import spring5_webmvc_mybatis_study.dto.Member;
 
@@ -14,6 +13,7 @@ public interface MemberMapper {
 	//멤버 수 카운트
 	Member count();
 	int insert(Member member);
+	public void update(Member member);
 	
 	
 	

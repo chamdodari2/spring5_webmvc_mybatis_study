@@ -1,16 +1,18 @@
 package spring5_webmvc_mybatis_study.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import spring5_webmvc_mybatis_study.dao.MemberDao;
 import spring5_webmvc_mybatis_study.dto.Member;
 import spring5_webmvc_mybatis_study.exception.MemberNotFoundException;
-
+import spring5_webmvc_mybatis_study.mapper.MemberMapper;
+@Service
 public class ChangePasswordService {
-	
 	@Autowired
-	private MemberDao memberDao;  //여기 필드에있으면 계속 dao 가리키고있어서 연관관계!! 실선
+	private MemberMapper memberMapper;
+	
+//	private MemberDao memberDao;  //여기 필드에있으면 계속 dao 가리키고있어서 연관관계!! 실선
 								  // 연관관계도 세분화하면 두개로 나뉘어진다. 채워진 마름모에 화살표있는거랑, 빈마름모에 화살표있는거
 		//원래는 서비스도 인터페이스 따로 만들어야하는디
 	
@@ -25,12 +27,12 @@ public class ChangePasswordService {
 	//}
 	@Transactional //하나의 작업으로 처리하겠당
 	public void changePassword(String email, String oldPwd, String newPwd) {
-		Member member = memberDao.selectByEmail(email);
+		Member member = memberMapper.selectByEmail(email);
 		if (member == null)
 			throw new MemberNotFoundException();
 		
 		member.changePassword(oldPwd, newPwd); //원래 여기에 true면 업데이트 해야하는거임. 그리고 여기도 예외처리 해야한다.
-		memberDao.update(member); 
+		memberMapper.update(member); 
 	}
 
 
@@ -38,10 +40,7 @@ public class ChangePasswordService {
 
 
 
-	public void setMemberDao(MemberDao memberDao) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 }

@@ -9,6 +9,7 @@ import org.springframework.validation.Validator;
 
 public class LoginCommandValidator implements Validator {
 	
+	
 	private static final String emailRegExp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	private Pattern pattern;

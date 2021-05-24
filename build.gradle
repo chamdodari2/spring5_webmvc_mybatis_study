@@ -17,9 +17,10 @@ repositories {
 
 dependencies {
 	//jsp
-	implementation group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
+	compile group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
 	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 	compileOnly group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.3'
+	//providedCompile
 	
 	//jstl
 	implementation group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'

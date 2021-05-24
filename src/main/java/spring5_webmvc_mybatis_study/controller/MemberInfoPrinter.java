@@ -1,16 +1,16 @@
 package spring5_webmvc_mybatis_study.controller;
 
-import spring5_webmvc_mybatis_study.dao.MemberDao;
 import spring5_webmvc_mybatis_study.dto.Member;
+import spring5_webmvc_mybatis_study.mapper.MemberMapper;
 
 public class MemberInfoPrinter {
 	
-	private MemberDao memberDao;
+	private MemberMapper memberMapper;
 	
 	private MemberPrinter printer;
 	
 	public void printMemberInfo(String email) {
-		Member member = memberDao.selectByEmail(email);
+		Member member = memberMapper.selectByEmail(email);
 		if(member==null) {
 			System.out.println("데이터 없음");
 			return;

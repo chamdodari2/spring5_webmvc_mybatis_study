@@ -12,12 +12,12 @@ import spring5_webmvc_mybatis_study.mapper.MemberMapper;
 
 @Service
 public class MemberRegisterService {
-//   private MemberDao memberDao;
+
    
    @Autowired
    MemberMapper memberMapper;
 
-   public MemberRegisterService(MemberMapper memberMapper) {
+   public MemberRegisterService(MemberMapper memberMapper){
       this.memberMapper = memberMapper;
    }
    

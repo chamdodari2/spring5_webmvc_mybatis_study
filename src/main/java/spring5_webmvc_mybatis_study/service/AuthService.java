@@ -14,7 +14,7 @@ public class AuthService {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	public AuthInfo authenicate(String email, String password) {
+	public AuthInfo authenicate(String email, String password){
 		Member member = memberMapper.selectByEmail(email);
 		if(member ==null) {
 			throw new WrongIdPasswordException();
