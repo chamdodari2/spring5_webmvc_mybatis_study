@@ -67,5 +67,9 @@ public class Member {
 	public void setRegisterDateTime(LocalDateTime registerDateTime) {
 		this.registerDateTime = registerDateTime;
 	}
+	////////////////입력받은 값이 회원가입시 저장된 패스워드와 일치하는지 확인
+	public boolean matchPassword(String password) {
+		return this.password.equals(password);
+	}
 
 }

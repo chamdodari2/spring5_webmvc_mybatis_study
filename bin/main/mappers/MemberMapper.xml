@@ -19,7 +19,7 @@
 		resultType="Member"><!-- 이 안에서 new Student 해주고 디폴트생성자도 만들어주고 알아서 set도 다 해준다. 편하당 -->
 		<!-- <include refid="selectSQL" />
 		<include refid="whereSQL" /> -->
-		select ID, EMAIL, PASSWORD, NAME, REGDATE from member where email = #{email}
+		select id, email, password, name, regdate from member where email = #{email}
 	</select>
  <!-- 여기서 _id 부분 달라서 안된적있다!! 
 	<resultMap type="Member" id="memResult">
