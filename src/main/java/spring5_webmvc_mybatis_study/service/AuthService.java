@@ -10,19 +10,17 @@ import spring5_webmvc_mybatis_study.mapper.MemberMapper;
 
 @Component
 public class AuthService {
-	
 	@Autowired
 	private MemberMapper memberMapper;
 
-	public AuthInfo authenicate(String email, String password){
+	public AuthInfo authenicate(String email, String password) {
 		Member member = memberMapper.selectByEmail(email);
-		if(member ==null) {
+		if (member == null) {
 			throw new WrongIdPasswordException();
 		}
-		if(!member.matchPassword(password)) {
+		if (!member.matchPassword(password)) {
 			throw new WrongIdPasswordException();
 		}
-		return new AuthInfo(member.getId(),member.getEmail(),member.getName());
+		return new AuthInfo(member.getId(), member.getEmail(), member.getName());
 	}
-
 }

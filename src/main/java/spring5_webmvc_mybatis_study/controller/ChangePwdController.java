@@ -14,15 +14,13 @@ import spring5_webmvc_mybatis_study.dto.AuthInfo;
 import spring5_webmvc_mybatis_study.dto.ChangePwdCommand;
 import spring5_webmvc_mybatis_study.dto.ChangePwdCommandValidator;
 import spring5_webmvc_mybatis_study.exception.WrongIdPasswordException;
-import spring5_webmvc_mybatis_study.mapper.MemberMapper;
 import spring5_webmvc_mybatis_study.service.ChangePasswordService;
 
 @Controller
 @RequestMapping("/edit/changePassword")
 public class ChangePwdController {
 
-	@Autowired
-	private MemberMapper memberMapper;
+
 	
 	@Autowired
 	private ChangePasswordService changePasswordService; //원래 service

@@ -19,21 +19,21 @@
 		resultType="Member"><!-- 이 안에서 new Student 해주고 디폴트생성자도 만들어주고 알아서 set도 다 해준다. 편하당 -->
 		<!-- <include refid="selectSQL" />
 		<include refid="whereSQL" /> -->
-		select id, email, password, name, regdate from member where email = #{email}
+		select id, email, password, name, regDate from member where email = #{email}
 	</select>
- <!-- 여기서 _id 부분 달라서 안된적있다!! 
-	<resultMap type="Member" id="memResult">
-		<id column="id" property="id" />   db상 컬럼이름안 stud_id를 studId에 넣어조
-		<result column="f" property="phone.countryCode" />
-		<result column="m" property="phone.stateCode" />
-		<result column="l" property="phone.number" />요기에 매핑시켜서 결과를 던져주겠당
-	</resultMap> -->
-	
+ 	
 	<select id="selectAll" resultType="Member">
 		<include refid="selectSQL"></include>
 	</select>
+	
 	<insert id="insert" >
 	insert into member (email,password,name,regDate) values(#{email},#{password},#{name},#{registerDateTime})
 	</insert>
+	
+	<update id="update">
+		update member 
+		   set name=#{name}, password=#{password} 
+		 where email=#{email}
+	</update>
 
 </mapper>

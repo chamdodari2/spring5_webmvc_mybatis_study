@@ -6,4 +6,4 @@ select ID, EMAIL, PASSWORD, NAME, REGDATE from member;
 desc member;
 
 DELETE FROM spring5.`member`
-WHERE ID <=35;
+WHERE ID =39;
