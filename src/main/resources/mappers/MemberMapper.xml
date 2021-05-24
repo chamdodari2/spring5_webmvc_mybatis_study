@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="spring5_webmvc_mybatis_study.mapper.MemberMapper"><!-- 앞에 이  dao가 들어있는 패키지명 붙여주기 -->
+
+	<sql id="selectSQL">
+		select ID, EMAIL, PASSWORD, NAME, REGDATE from member
+
+	</sql>
+
+	<sql id="whereSQL">
+		<where>
+			<if test="email != null">  <!-- 만약 넣이면 이거 안붙는다 -->
+				email=#{email}
+			</if>
+		</where>
+	</sql>
+	<select id="selectByEmail" parameterType="String"
+		resultType="Member"><!-- 이 안에서 new Student 해주고 디폴트생성자도 만들어주고 알아서 set도 다 해준다. 편하당 -->
+		<!-- <include refid="selectSQL" />
+		<include refid="whereSQL" /> -->
+		select ID, EMAIL, PASSWORD, NAME, REGDATE from member where email = #{email}
+	</select>
+ <!-- 여기서 _id 부분 달라서 안된적있다!! 
+	<resultMap type="Member" id="memResult">
+		<id column="id" property="id" />   db상 컬럼이름안 stud_id를 studId에 넣어조
+		<result column="f" property="phone.countryCode" />
+		<result column="m" property="phone.stateCode" />
+		<result column="l" property="phone.number" />요기에 매핑시켜서 결과를 던져주겠당
+	</resultMap> -->
+	
+	<select id="selectAll" resultType="Member">
+		<include refid="selectSQL"></include>
+	</select>
+	<insert id="insert" >
+	insert into member (email,password,name,regDate) values(#{email},#{password},#{name},#{registerDateTime})
+	</insert>
+
+</mapper>
