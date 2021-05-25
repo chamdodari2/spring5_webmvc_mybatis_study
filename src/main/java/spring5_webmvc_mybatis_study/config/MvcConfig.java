@@ -6,9 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import spring5_webmvc_mybatis_study.intercepter.AuthCheckInterceptor;
+
 
 @Configuration
 @EnableWebMvc // 스프링 MVC설정 활성화
@@ -39,5 +43,16 @@ public class MvcConfig implements WebMvcConfigurer {
 		ms.setDefaultEncoding("UTF-8");
 			return ms;
 	}
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authCheckInterceptor()).addPathPatterns("/edit/**");
+		WebMvcConfigurer.super.addInterceptors(registry);
+	}
+	
+	@Bean
+	private AuthCheckInterceptor authCheckInterceptor() {
+		return new AuthCheckInterceptor();
+	}
+	
 	
 }
