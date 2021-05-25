@@ -36,10 +36,15 @@
 		 where email=#{email}
 	</update>
 	
-	<select id="selectByRegdate">
+	<select id="selectMemberByRegdate" resultMap="resMember">
 		select * from member
 			where regdate between #{from} and #{to}
 			order by regdate desc;
 	</select>
+	
+	<resultMap type="Member" id="resMember">
+		<id column="id" property="id"/>
+		<result column="regdate" property="registerDateTime"/>
+	</resultMap>
 
 </mapper>
