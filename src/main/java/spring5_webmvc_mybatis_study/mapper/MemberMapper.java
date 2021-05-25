@@ -1,21 +1,22 @@
 package spring5_webmvc_mybatis_study.mapper;
 
-import java.time.LocalDateTime;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
 
 import spring5_webmvc_mybatis_study.dto.ListCommand;
 import spring5_webmvc_mybatis_study.dto.Member;
-
+@Component
 public interface MemberMapper {
 	
 	//멤버 전체 검색 (번호,멤버이름)?
-	public List<Member> selectAll();
+	List<Member> selectAll();
 	//email로 검색
 	Member selectByEmail(String email);
 	//멤버 수 카운트
-	Member count();
+	int count();
 	int insert(Member member);
-	public void update(Member member);
+	int update(Member member);
 	
 	
 //	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to);
