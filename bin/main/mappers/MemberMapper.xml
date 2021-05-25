@@ -35,5 +35,11 @@
 		   set name=#{name}, password=#{password} 
 		 where email=#{email}
 	</update>
+	
+	<select id="selectByRegdate">
+		select * from member
+			where regdate between #{from} and #{to}
+			order by regdate desc;
+	</select>
 
 </mapper>

@@ -24,7 +24,7 @@ import spring5_webmvc_mybatis_study.service.AuthService;
 public class LoginController {
 
 	@Autowired
-	private AuthService authService;
+	private AuthService authService;  
 
 	@GetMapping
 	public String form(LoginCommand loginCommand, @CookieValue(value = "REMEMBER", required = false) Cookie rCookie) {

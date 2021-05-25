@@ -1,7 +1,9 @@
 package spring5_webmvc_mybatis_study.mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import spring5_webmvc_mybatis_study.dto.ListCommand;
 import spring5_webmvc_mybatis_study.dto.Member;
 
 public interface MemberMapper {
@@ -15,6 +17,9 @@ public interface MemberMapper {
 	int insert(Member member);
 	public void update(Member member);
 	
+	
+//	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to);
+	public List<Member> selectMemberByRegdate(ListCommand listCommand);
 	
 	
 	
