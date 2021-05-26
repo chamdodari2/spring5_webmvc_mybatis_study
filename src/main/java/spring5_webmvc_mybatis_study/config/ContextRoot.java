@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Import;
 		"spring5_webmvc_mybatis_study.service"
 		,"spring5_webmvc_mybatis_study.controller"
 		,"spring5_webmvc_mybatis_study.mapper"
+		,"spring5_webmvc_mybatis_study.common"
 		})
 public class ContextRoot {
 
