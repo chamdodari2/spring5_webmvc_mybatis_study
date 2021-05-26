@@ -46,5 +46,9 @@
 		<id column="id" property="id"/>
 		<result column="regdate" property="registerDateTime"/>
 	</resultMap>
+	
+	<select id="selectMemberById" resultType="Member">
+		select * from member where id=#{id};
+	</select>
 
 </mapper>

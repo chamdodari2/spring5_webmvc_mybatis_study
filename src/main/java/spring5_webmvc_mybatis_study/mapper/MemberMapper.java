@@ -21,7 +21,7 @@ public interface MemberMapper {
 	
 //	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to);
 	public List<Member> selectMemberByRegdate(ListCommand listCommand);
-	
+	public Member selectMemberById(Long memId);
 	
 	
 	
