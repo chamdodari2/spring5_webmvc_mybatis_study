@@ -11,4 +11,5 @@ public interface RestMemberService extends MemberDetailService {  //요고로 �
 	Member showMemberById(Long memId);
 
 
+
 }

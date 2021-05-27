@@ -26,4 +26,9 @@ public class RestMemberServiceImpl implements RestMemberService {
 		return memberMapper.selectAll();
 	}
 
+
+
+
+	
+	
 }
