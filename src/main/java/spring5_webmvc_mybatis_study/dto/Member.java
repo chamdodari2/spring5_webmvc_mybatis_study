@@ -2,30 +2,38 @@ package spring5_webmvc_mybatis_study.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import spring5_webmvc_mybatis_study.exception.WrongIdPasswordException;
 
 public class Member {
-	
 	private Long id;
 	private String email;
-//	@JsonIgnore
+	@JsonIgnore
 	private String password;
 	private String name;
 //	@JsonFormat(pattern = "yyyyMMddHHmmss")
 	private LocalDateTime registerDateTime;
-	
-	
-	//id 빼놓고 네개만으로 만듬
+
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Member(String email, String password, String name) {
+		this.email = email;
+		this.password = password;
+		this.name = name;
+	}
+
 	public Member(String email, String password, String name, LocalDateTime registerDateTime) {
-		super();
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.registerDateTime = registerDateTime;
 	}
 
-	public void changePassword (String oldPassword, String newPassword){
-		if(!password.equals(oldPassword))
+	public void changePassword(String oldPassword, String newPassword) {
+		if (!password.equals(oldPassword))
 			throw new WrongIdPasswordException();
 		this.password = newPassword;
 	}
@@ -69,10 +77,19 @@ public class Member {
 	public void setRegisterDateTime(LocalDateTime registerDateTime) {
 		this.registerDateTime = registerDateTime;
 	}
-	////////////////입력받은 값이 회원가입시 저장된 패스워드와 일치하는지 확인
+
 	public boolean matchPassword(String password) {
 		return this.password.equals(password);
 	}
 
-	
+	@Override
+	public String toString() {
+		return String.format("Member [id=%s, email=%s, password=%s, name=%s, registerDateTime=%s]", id, email, password,
+				name, registerDateTime);
+	}
+//	////////////////입력받은 값이 회원가입시 저장된 패스워드와 일치하는지 확인
+//	public boolean matchPassword(String password) {
+//		return this.password.equals(password);
+//	}
+
 }

@@ -7,6 +7,6 @@
 <title>에러</title>
 </head>
 <body>
-	에러가 발생했습니다.
+	에러가 발생했습니다. 왜??
 </body>
 </html>

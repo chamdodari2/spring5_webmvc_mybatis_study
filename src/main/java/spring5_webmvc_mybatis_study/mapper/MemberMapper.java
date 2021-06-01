@@ -9,7 +9,7 @@ import spring5_webmvc_mybatis_study.dto.Member;
 @Component
 public interface MemberMapper {
 	
-	//멤버 전체 검색 (번호,멤버이름)?
+	
 	List<Member> selectAll();
 	//email로 검색
 	Member selectByEmail(String email);

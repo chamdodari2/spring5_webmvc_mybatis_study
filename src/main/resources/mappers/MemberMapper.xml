@@ -4,7 +4,7 @@
 	namespace="spring5_webmvc_mybatis_study.mapper.MemberMapper"><!-- 앞에 이  dao가 들어있는 패키지명 붙여주기 -->
 
 	<sql id="selectSQL">
-		select ID, EMAIL, PASSWORD, NAME, REGDATE from member
+		select * from member
 
 	</sql>
 
@@ -22,12 +22,12 @@
 		select id, email, password, name, regDate from member where email = #{email}
 	</select>
  	
-	<select id="selectAll" resultType="Member">
+	<select id="selectAll" resultMap="resMember">
 		<include refid="selectSQL"></include>
 	</select>
 	
 	<insert id="insert" >
-	insert into member (email,password,name,regDate) values(#{email},#{password},#{name},#{registerDateTime})
+	insert into member (email,password,name,regDate) values(#{email},#{password},#{name},now())
 	</insert>
 	
 	<update id="update">

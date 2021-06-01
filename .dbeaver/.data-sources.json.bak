@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"mysql5-179b7ae6fc1-7bea0b33be05679": {
+		"mysql5-1798ddb27e4-46b906846497bf82": {
 			"provider": "mysql",
 			"driver": "mysql5",
 			"name": "localhost",

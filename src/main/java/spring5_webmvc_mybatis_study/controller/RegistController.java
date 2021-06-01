@@ -17,8 +17,7 @@ import spring5_webmvc_mybatis_study.service.MemberRegisterService;
 @Controller
 public class RegistController {
 
-	@Autowired
-	private MemberMapper memberMapper;
+
 	@Autowired
 	MemberRegisterService memberRegisterService;
 
